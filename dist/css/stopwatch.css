@@ -39,7 +39,7 @@ body {
 
 @media (max-width: 500px) {
   .stopwatch, .timer {
-    width: 100vw;
+    width: 90vw;
   }
 }
 
@@ -95,7 +95,7 @@ body {
 
 .stopwatch .timer-input input:focus, .timer .timer-input input:focus {
   border: none;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #EDF6E5;
   outline: none;
 }
 
@@ -115,6 +115,11 @@ body {
   margin: 0 20px;
   border-radius: 50%;
   border: none;
+}
+
+.stopwatch .stopwatch-btn button:hover, .stopwatch .timer-btn button:hover, .timer .stopwatch-btn button:hover, .timer .timer-btn button:hover {
+  color: F38BA0;
+  background-color: EDF6E5;
 }
 
 @media (max-width: 370px) {

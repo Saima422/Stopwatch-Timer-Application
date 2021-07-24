@@ -48,6 +48,7 @@ const startTimerFunc = () => {
     }  
     else{
         timerStart.disabled = true;
+        timerStart.style.color = "#FFBCBC";
 
         window.myTimer= setInterval(() => {
         if(timerSeconds != 0){
