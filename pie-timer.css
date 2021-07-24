@@ -1,0 +1,64 @@
+.wrapper {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    /* // background: black; */
+  }
+
+  .pie {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    background: #08C;
+    transform-origin: 100% 50%;
+    /* // border:
+    // border: 10px solid #08C;
+
+    // border: 10px solid rgba(0,0,0,0.4); */
+  }
+
+  .spinner {
+    /* // border-radius: 50% 0 0 50%; */
+    border-radius: 135px 0 0 135px;
+    z-index: 200;
+    border-right: none;
+    animation: rota 60s linear infinite;
+  }
+
+  .filler {
+    border-radius: 0 135px 135px 0;
+    z-index: 100;
+    border-left: none;
+    animation: fill 60s steps(1, end) infinite;
+    /* // left: 54.23%; */
+    left: 50%;
+    opacity: 0;
+  }
+
+  .mask {
+    width: 50%;
+    height: 100%;
+    /* // border-radius: 115px 0 0 115px;
+    // border: 4px solid white;
+    // border: 10px solid rgba(105, 100, 100, 0.4); */
+    position: absolute;
+    z-index: 300;
+    opacity: 1;
+    background: white;
+    animation: mask 60s steps(1, end) infinite;
+  }
+
+  @keyframes rota {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes fill {
+    0%        { opacity: 0; }
+    50%, 100% { opacity: 1; }
+  }
+  
+  @keyframes mask {
+    0%        { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }

@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch/Timer</title>
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- CSS -->
+    <!-- <link rel="stylesheet" href="./dist/css/style.css"> -->
+    <link rel="stylesheet" href="./dist/css/stopwatch.css">
+
+    <!-- JS -->
+    <script src="./src/stopwatch.js" defer></script>
+    <script src="./src/timer.js" defer></script>
+
+</head>
+<body>
+    <a href="#">Stopwatch / Timer Application</a>
+    <div id="main-display" class="initial-display-block">
+        <h1>Welcome!!</h1>
+        <h4>Please Select one of the following you want to TRY</h4>
+        <button onclick="displayStopwatch()">Stopwatch</button>
+        <button onclick="displayTimer()">Timer</button>
+    </div>
+   
+    <div id="stopwatch" class="stopwatch" style="display: none;">
+      <h1>Stopwatch</h1>
+
+      <br>
+
+      <div class="stopwatch-text">
+        <span id="hour">00</span><p>:</p><span id="minute">00</span><p>:</p><span id="second">00</span>
+      </div>
+    
+      <br />
+      
+      <div class="stopwatch-btn">
+        <button type="button" id="start"><i class="fas fa-play fa-2x"></i></button>
+        <button type="button" id="pause"><i class="fas fa-pause fa-2x"></i></button>
+        <button type="button" id="reset"><i class="fas fa-redo fa-2x"></i></button>  
+      </div>
+
+    </div>
+    
+
+    <div id="timer" class="timer" style="display: none;">
+        <h1>Timer</h1>
+
+        <div id="timer-div" class="timer-content">
+            <div class="timer-input">
+                <input type="number" placeholder="H" id="timer-hrs">
+                <input type="number" placeholder="M" id="timer-mins">
+                <input type="number" placeholder="S" id="timer-secs">
+            </div>
+        </div>
+        
+
+        <br /> 
+
+        <div class="display-timer">
+            <span id="timer-hour">00</span><p>:</p><span id="timer-minute">00</span><p>:</p><span id="timer-second">00</span>
+        </div>
+
+        <br />
+        
+        <div class="timer-btn">
+            <button type="button" id="timer-start"><i class="fas fa-play fa-2x"></i></button>
+            <button type="button" id="timer-pause"><i class="fas fa-pause fa-2x"></i></button>
+            <button type="button" id="timer-reset"><i class="fas fa-redo fa-2x"></i></button> 
+            <!-- <button type="button" id="timer-cancel">cancel</button> -->
+        </div>
+    </div>
+    
+
+
+
+
+      <!-- <div class="wrapper">
+        <div class="pie spinner"></div>
+        <div class="pie filler"></div>
+        <div class="mask"></div>
+       
+      </div> -->
+</body>
+</html>

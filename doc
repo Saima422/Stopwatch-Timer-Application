@@ -1,0 +1,25 @@
+Create a Timer
+
+Requirements
+1. Hour, Mins and Secs field
+    a. This field should be editable for user to enter and remove values(only numbers are accepted => 2 digit)
+    b. Should not be editable once the user has started the Timer
+    c. The timer value entered should be saved and used on RESET done by user
+
+2. there should be START, PAUSE, RESET AND CANCEL/REFRESH button in the application
+    a. Only start button should be there when until the user enters the values and start the timer
+    b. once the timer the started the 3 other buttons should be visible.
+
+
+What Should be done??
+
+* a function to accept timer value from user and set the timer value 
+* a function to evoke the timer and decrease value every sec 
+*
+*
+*
+*
+*
+*
+
+3:0:0
