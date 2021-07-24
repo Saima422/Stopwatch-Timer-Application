@@ -17,6 +17,10 @@ const displayStopwatch = () => {
 
 const startStopwatch = () => {
     start.disabled = true;
+    start.style = "color: F38BA0;background-color: EDF6E5;"
+    pause.style = "color: EDF6E5;background-color: none;"
+    reset.style = "color: EDF6E5;background-color: none;"
+
 
     window.myStopwatch= setInterval(() => {
         seconds += 01;
@@ -28,7 +32,6 @@ const startStopwatch = () => {
             hours += 01;
             minutes = 00;
         }
-        // console.log(hours, minutes, seconds);
         hrSpan.innerHTML = hours;
         minSpan.innerHTML = minutes;
         secdSpan.innerHTML = seconds;
@@ -38,11 +41,17 @@ const startStopwatch = () => {
 
 const pauseStopwatch = () => {
     start.disabled = false;
+    pause.style = "color: F38BA0;background-color: EDF6E5;"
+    start.style = "color: EDF6E5;background-color: none;"
+    reset.style = "color: EDF6E5;background-color: none;"
     clearInterval(window.myStopwatch);
 }
 
 const resetStopwatch = () => {
     start.disabled = false;
+    reset.style = "color: F38BA0;background-color: EDF6E5;"
+    pause.style = "color: EDF6E5;background-color: none;"
+    start.style = "color: EDF6E5;background-color: none;"
     clearInterval(window.myStopwatch);
     hours = 00;
     minutes = 00;

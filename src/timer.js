@@ -1,7 +1,6 @@
 const timerStart = document.getElementById("timer-start");
 const timerPause = document.getElementById("timer-pause");
 const timerReset = document.getElementById("timer-reset");
-// const timerCancel = document.getElementById("timer-cancel");
 
 const hrSpanTimer = document.getElementById("timer-hour");
 const minSpanTimer = document.getElementById("timer-minute");
@@ -15,20 +14,6 @@ let timerHours = 00;
 let timerMinutes = 00;
 let timerSeconds = 00;
 
-// const inputDiv =`<div class="timer-input">
-//                     <input type="number" placeholder="H" id="timer-hrs"><p>:</p>
-//                     <input type="number" placeholder="M" id="timer-mins"><p>:</p>
-//                     <input type="number" placeholder="S" id="timer-secs">
-//                 </div>`;
-
-// const timerDiv = `<div class="display-timer">
-//                     <span id="timer-hour">00</span><p>:</p>
-//                     <span id="timer-minute">00</span><p>:</p>
-//                     <span id="timer-second">00</span>
-//                   </div>`;
-
-// displayDiv(inputDiv);
-
 const displayTimer = () => {
     document.getElementById('timer').style = "display: flex;";
     document.getElementById('main-display').style = "display: none;";
@@ -39,16 +24,15 @@ const startTimerFunc = () => {
     timerHours = hrInput.value;
     timerMinutes = minInput.value;
     timerSeconds = secdInput.value;
-
-    // displayDiv(timerDiv);
-
     
     if(timerSeconds == "" && timerMinutes == "" && timerHours == ""){
         alert('Enter a value for Timer to Start');
     }  
     else{
         timerStart.disabled = true;
-        timerStart.style.color = "#FFBCBC";
+        timerStart.style = "color: F38BA0;background-color: EDF6E5;";
+        timerPause.style = "color: EDF6E5;background-color: none;";
+        timerReset.style = "color: EDF6E5;background-color: none;";
 
         window.myTimer= setInterval(() => {
         if(timerSeconds != 0){
@@ -70,7 +54,6 @@ const startTimerFunc = () => {
             timerStart.disabled = false;
         }
 
-        // console.log(hours, minutes, seconds);
         hrSpanTimer.innerHTML = timerHours;
         minSpanTimer.innerHTML = timerMinutes;
         secdSpanTimer.innerHTML = timerSeconds;
@@ -81,11 +64,17 @@ const startTimerFunc = () => {
 
 const pauseTimerFunc = () => {
     timerStart.disabled = false;
+    timerPause.style = "color: F38BA0;background-color: EDF6E5;";
+    timerStart.style = "color: EDF6E5;background-color: none;";
+    timerReset.style = "color: EDF6E5;background-color: none;";
     clearInterval(window.myTimer);
 }
 
 const resetTimerFunc = () => {
     timerStart.disabled = false;
+    timerReset.style = "color: F38BA0;background-color: EDF6E5;";
+    timerPause.style = "color: EDF6E5;background-color: none;";
+    timerStart.style = "color: EDF6E5;background-color: none;";
     clearInterval(window.myTimer);
     timerHours = 00;
     timerMinutes = 00;
@@ -99,15 +88,8 @@ const resetTimerFunc = () => {
     secdInput.value = ""; 
 }
 
-// const cancelTimerFunc = () => {}
-
 timerStart.addEventListener('click', startTimerFunc);
 timerPause.addEventListener('click', pauseTimerFunc);
 timerReset.addEventListener('click', resetTimerFunc);
-// timerCancel.addEventListener('click', cancelTimerFunc);
 
-// const displayDiv = (divContent) => {
-//     console.log(divContent);
-//     document.getElementById('timer-div').innerHTML = divContent;
-    
-// }
+
