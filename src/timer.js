@@ -19,12 +19,17 @@ const displayTimer = () => {
     document.getElementById('main-display').style = "display: none;";
 }
 
+let count = 0;
 
 const startTimerFunc = () => {
-    timerHours = hrInput.value;
-    timerMinutes = minInput.value;
-    timerSeconds = secdInput.value;
-    
+
+    if(count == 0){
+        timerHours = hrInput.value;
+        timerMinutes = minInput.value;
+        timerSeconds = secdInput.value;
+        count += 1;
+    }
+
     if(timerSeconds == "" && timerMinutes == "" && timerHours == ""){
         alert('Enter a value for Timer to Start');
         resetTimerFunc();
@@ -62,32 +67,48 @@ const startTimerFunc = () => {
         timerReset.style = "color: EDF6E5;background-color: none;";
 
         window.myTimer= setInterval(() => {
-        if(timerSeconds != 0){
-            timerSeconds -= 1;
-            if(timerSeconds <= 9){
-                timerSeconds = "0" + timerSeconds;
+            if (timerSeconds > 0) {
+                timerSeconds -=1;
+                if(timerSeconds <= 9){
+                    timerSeconds = "0" + timerSeconds;
+                }
             }
-        }
-        if(timerSeconds == 0 && timerMinutes != 0){
-            timerMinutes -= 1;
-            if(timerMinutes <= 9){
-                timerMinutes = "0" + timerMinutes;
+            else {
+                if (timerMinutes > 0) {
+                    timerMinutes--;
+                    timerSeconds = 59;
+                    if(timerMinutes <= 9){
+                        timerMinutes = "0" + timerMinutes;
+                    }
+                }
+                else {
+                    timerMinutes = 59;
+                    timerSeconds = 59;
+                    timerHours -=1;
+                    if(timerHours <= 9){
+                        timerHours = "0" + timerHours;
+                    }
+                }
             }
-            timerSeconds = 59;
-        }
-        if(timerSeconds == 0 && timerMinutes == 0 && timerHours != 0){
-            timerHours -=1;
-            if(timerHours <= 9){
-                timerHours = "0" + timerHours;
+    
+            if(timerSeconds != 0 || timerMinutes != 0 || timerHours != 0){
+        
+                if(timerHours <= 9 && timerHours.length <2){
+                    timerHours = "0" + timerHours;
+                }
+                if(timerMinutes <= 9 && timerMinutes.length <2){
+                    timerMinutes = "0" + timerMinutes;
+                }
+                if(timerSeconds <= 9 && timerSeconds.length <2){
+                    timerSeconds = "0" + timerSeconds;
+                }
             }
-            timerMinutes = 59;
-            timerSeconds = 59;
-        }
-        if(timerSeconds == 0 && timerMinutes == 0 && timerHours == 0){
-            alert("Timer Completed!");
-            resetTimerFunc();
-        }
-
+            
+            if(timerSeconds == 0 && timerMinutes == 0 && timerHours == 0){
+                alert("Timer Completed!");
+                resetTimerFunc();
+            }
+    
         hrSpanTimer.innerHTML = timerHours;
         minSpanTimer.innerHTML = timerMinutes;
         secdSpanTimer.innerHTML = timerSeconds;
@@ -104,6 +125,7 @@ const pauseTimerFunc = () => {
 }
 
 const resetTimerFunc = () => {
+    count = 0;
     enableFunction();
     timerReset.style = "color: F38BA0;background-color: EDF6E5;";
     timerPause.style = "color: EDF6E5;background-color: none;";
