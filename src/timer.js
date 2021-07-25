@@ -20,8 +20,29 @@ const displayTimer = () => {
 }
 
 let count = 0;
+let isTimerPlay = false;
+
+
+const checkIfPlay = () => {
+    if(isTimerPlay){
+        timerPause.disabled = false;
+        timerReset.disabled = false; 
+        timerStart.style.color = "grey";
+        timerPause.style.color = "unset";
+        timerReset.style.color = "unset";
+    }
+    else{
+        timerPause.disabled = true;
+        timerReset.disabled = true; 
+        timerStart.style.color = "unset";
+        timerPause.style.color = "grey";
+        timerReset.style.color = "grey";
+    }
+}
 
 const startTimerFunc = () => {
+    isTimerPlay = true;
+    checkIfPlay();
 
     if(count == 0){
         timerHours = hrInput.value;
@@ -39,15 +60,15 @@ const startTimerFunc = () => {
         resetTimerFunc();
     }  
     else if(timerSeconds >= 60){
-        alert("Seconds cannot be greater than 60");
+        alert("Seconds should be less than 60");
         resetTimerFunc();
     }
     else if(timerMinutes >= 60){
-        alert("Minutes cannot be greater than 60");
+        alert("Minutes should be less than 60");
         resetTimerFunc();
     }
     else if(timerHours >= 24){
-        alert("Hours cannot be greater than 24");
+        alert("Hours should be less than 24");
         resetTimerFunc();
     }
     else{
@@ -62,9 +83,6 @@ const startTimerFunc = () => {
         hrInput.disabled = true;
         secdInput.disabled = true;
         minInput.disabled = true;
-        timerStart.style = "color: F38BA0;background-color: EDF6E5;";
-        timerPause.style = "color: EDF6E5;background-color: none;";
-        timerReset.style = "color: EDF6E5;background-color: none;";
 
         window.myTimer= setInterval(() => {
             if (timerSeconds > 0) {
@@ -118,18 +136,17 @@ const startTimerFunc = () => {
 
 const pauseTimerFunc = () => {
     timerStart.disabled = false;
-    timerPause.style = "color: F38BA0;background-color: EDF6E5;";
-    timerStart.style = "color: EDF6E5;background-color: none;";
-    timerReset.style = "color: EDF6E5;background-color: none;";
+    timerStart.style.color = "unset";
+    timerPause.style.color = "grey";
+    
     clearInterval(window.myTimer);
 }
 
 const resetTimerFunc = () => {
     count = 0;
     enableFunction();
-    timerReset.style = "color: F38BA0;background-color: EDF6E5;";
-    timerPause.style = "color: EDF6E5;background-color: none;";
-    timerStart.style = "color: EDF6E5;background-color: none;";
+    isTimerPlay = false;
+    checkIfPlay();
     clearInterval(window.myTimer);
 
     timerHours = "00";

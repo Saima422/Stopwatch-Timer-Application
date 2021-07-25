@@ -10,6 +10,25 @@ let hours = 00;
 let minutes = 00;
 let seconds = 00;
 
+let isStopwatchPlay = false;
+
+const checkIfSPlay = () => {
+    if(isStopwatchPlay){
+        pause.disabled = false;
+        reset.disabled = false; 
+        start.style.color = "grey";
+        pause.style.color = "unset";
+        reset.style.color = "unset";
+    }
+    else{
+        pause.disabled = true;
+        reset.disabled = true; 
+        start.style.color = "unset";
+        pause.style.color = "grey";
+        reset.style.color = "grey";
+    }
+}
+
 const displayStopwatch = () => {
     document.getElementById('stopwatch').style = "display: flex;";
     document.getElementById('main-display').style = "display: none;";
@@ -17,11 +36,9 @@ const displayStopwatch = () => {
 
 const startStopwatch = () => {
     start.disabled = true;
-    start.style = "color: F38BA0;background-color: EDF6E5;"
-    pause.style = "color: EDF6E5;background-color: none;"
-    reset.style = "color: EDF6E5;background-color: none;"
-
-
+    isStopwatchPlay = true;
+    checkIfSPlay();
+    
     window.myStopwatch= setInterval(() => {
         seconds += 01;
         if(seconds == 60){
@@ -42,17 +59,15 @@ const startStopwatch = () => {
 
 const pauseStopwatch = () => {
     start.disabled = false;
-    pause.style = "color: F38BA0;background-color: EDF6E5;"
-    start.style = "color: EDF6E5;background-color: none;"
-    reset.style = "color: EDF6E5;background-color: none;"
+    start.style.color = "unset";
+    pause.style.color = "grey";
     clearInterval(window.myStopwatch);
 }
 
 const resetStopwatch = () => {
     start.disabled = false;
-    reset.style = "color: F38BA0;background-color: EDF6E5;"
-    pause.style = "color: EDF6E5;background-color: none;"
-    start.style = "color: EDF6E5;background-color: none;"
+    isStopwatchPlay = false;
+    checkIfSPlay();
     clearInterval(window.myStopwatch);
     hours = 00;
     minutes = 00;
@@ -71,7 +86,7 @@ const takeToHome = () =>{
     clearInterval(window.myTimer);
     resetStopwatch();
     resetTimerFunc();
-    
+
     document.getElementById('stopwatch').style = "display: none;";
     document.getElementById('main-display').style = "display: flex;";
     document.getElementById('timer').style = "display:none;"
