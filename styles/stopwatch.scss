@@ -17,31 +17,6 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-img{
-    position: absolute;
-    width: 500px;
-
-    @media (max-width: 1050px) {
-      width: 50vw;
-    }
-    @media (max-width: 900px) {
-        width: 55vw;
-      }
-    @media (max-width: 500px) {
-        display: none;
-      }
-}
-
-img:first-child{
-    top: 50px;
-    left: 20px;
-}
-
-img:last-of-type{
-    bottom: 0;
-    right: 0;
-}
-
 body{
     position: relative;
     background-color: EDF6E5;
@@ -68,6 +43,32 @@ body{
         }
     }
 }
+
+img{
+    position: absolute;
+    width: 500px;
+
+    @media (max-width: 1050px) {
+      width: 50vw;
+    }
+    @media (max-width: 900px) {
+        width: 55vw;
+      }
+    @media (max-width: 500px) {
+        display: none;
+      }
+}
+
+img:first-child{
+    top: 50px;
+    left: 20px;
+}
+
+img:last-of-type{
+    bottom: 0;
+    right: 0;
+}
+
 
 .stopwatch, .timer{
     background-color: F38BA0;
