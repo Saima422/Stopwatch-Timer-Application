@@ -32,6 +32,7 @@ const startStopwatch = () => {
             hours += 01;
             minutes = 00;
         }
+        
         hrSpan.innerHTML = hours;
         minSpan.innerHTML = minutes;
         secdSpan.innerHTML = seconds;
@@ -56,12 +57,24 @@ const resetStopwatch = () => {
     hours = 00;
     minutes = 00;
     seconds = 00;
-    hrSpan.innerHTML = "00";
-    minSpan.innerHTML = "00";
-    secdSpan.innerHTML = "00";
+    hrSpan.innerHTML = "0";
+    minSpan.innerHTML = "0";
+    secdSpan.innerHTML = "0";
 }
 
 start.addEventListener('click', startStopwatch);
 pause.addEventListener('click', pauseStopwatch);
 reset.addEventListener('click', resetStopwatch);
+
+const takeToHome = () =>{
+    clearInterval(window.myStopwatch);
+    clearInterval(window.myTimer);
+    resetStopwatch();
+    resetTimerFunc();
+    
+    document.getElementById('stopwatch').style = "display: none;";
+    document.getElementById('main-display').style = "display: flex;";
+    document.getElementById('timer').style = "display:none;"
+}
+
 

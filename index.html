@@ -16,14 +16,23 @@
     <script src="./src/stopwatch.js" defer></script>
     <script src="./src/timer.js" defer></script>
 
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <a href="#">Stopwatch / Timer Application</a>
+    <img src="./assets/image1.svg" alt="">
+    <img src="./assets/image2.svg" alt="">
+    <button onclick="takeToHome()" class="btnn" style="font-family: 'Acme', sans-serif;">Stopwatch / Timer Application</button>
     <div id="main-display" class="initial-display-block">
         <h1>Welcome!!</h1>
         <h4>Please Select one of the following you want to TRY</h4>
-        <button onclick="displayStopwatch()">Stopwatch</button>
-        <button onclick="displayTimer()">Timer</button>
+        <div class="btn-div">
+            <button onclick="displayStopwatch()">Stopwatch</button>
+            <button onclick="displayTimer()">Timer</button>
+        </div>
     </div>
    
     <div id="stopwatch" class="stopwatch" style="display: none;">
@@ -32,7 +41,7 @@
       <br>
 
       <div class="stopwatch-text">
-        <span id="hour">00</span><p>:</p><span id="minute">00</span><p>:</p><span id="second">00</span>
+        <span id="hour">0</span><p>:</p><span id="minute">0</span><p>:</p><span id="second">0</span>
       </div>
     
       <br />
@@ -70,19 +79,8 @@
             <button type="button" id="timer-start"><i class="fas fa-play fa-2x"></i></button>
             <button type="button" id="timer-pause"><i class="fas fa-pause fa-2x"></i></button>
             <button type="button" id="timer-reset"><i class="fas fa-redo fa-2x"></i></button> 
-            <!-- <button type="button" id="timer-cancel">cancel</button> -->
         </div>
     </div>
-    
 
-
-
-
-      <!-- <div class="wrapper">
-        <div class="pie spinner"></div>
-        <div class="pie filler"></div>
-        <div class="mask"></div>
-       
-      </div> -->
 </body>
 </html>
